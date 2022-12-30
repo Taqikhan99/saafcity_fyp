@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3b0f19938e5c434aac733dfa3f6b2e21" Name="Diagram1">
+        <EntityTypeShape EntityType="SaafCity_DatabaseModel.Complainnt" Width="1.5" PointX="5.375" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaafCity_DatabaseModel.Complaint_Log" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaafCity_DatabaseModel.Complaint" Width="1.5" PointX="2.625" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaafCity_DatabaseModel.Department" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaafCity_DatabaseModel.Employee" Width="1.5" PointX="8.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaafCity_DatabaseModel.User" Width="1.5" PointX="7.375" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="SaafCity_DatabaseModel.FK__Complainn__Compl__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="SaafCity_DatabaseModel.FK__Complaint__Compl__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="SaafCity_DatabaseModel.FK__Complaint__Depar__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="SaafCity_DatabaseModel.FK__Complaint__Emplo__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="SaafCity_DatabaseModel.FK__Complaint__Depar__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="SaafCity_DatabaseModel.FK__Employees__Compl__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="SaafCity_DatabaseModel.FK__Employees__Depar__534D60F1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

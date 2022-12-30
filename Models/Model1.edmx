@@ -1,0 +1,503 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SaafCity_DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Complainnts">
+          <Key>
+            <PropertyRef Name="Complainant_ID" />
+          </Key>
+          <Property Name="Complainant_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Complainant_Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="Complainant_Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="Complainant_PhoneNo" Type="varchar" MaxLength="15" />
+          <Property Name="Complainant_Password" Type="nvarchar" MaxLength="20" />
+          <Property Name="Complaint_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Complaint_Log">
+          <Key>
+            <PropertyRef Name="Serial_No" />
+          </Key>
+          <Property Name="Serial_No" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Complaint_ID" Type="int" />
+          <Property Name="Log_Time" Type="time" Precision="7" />
+          <Property Name="Log_Date" Type="date" />
+          <Property Name="Complaint_Loction" Type="nvarchar" MaxLength="256" />
+          <Property Name="Complaint_Status" Type="nvarchar" MaxLength="100" />
+          <Property Name="Employee_ID" Type="int" />
+          <Property Name="Depart_ID" Type="int" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="600" />
+        </EntityType>
+        <EntityType Name="Complaints">
+          <Key>
+            <PropertyRef Name="Complaint_ID" />
+          </Key>
+          <Property Name="Complaint_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Complaint_Time" Type="datetime" />
+          <Property Name="Complaint_Loction" Type="nvarchar" MaxLength="256" />
+          <Property Name="Complaint_Status" Type="nvarchar" MaxLength="100" />
+          <Property Name="Complaint_Image" Type="image" />
+          <Property Name="Verifiction_Image" Type="image" />
+          <Property Name="Depart_ID" Type="int" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="600" />
+        </EntityType>
+        <EntityType Name="Departments">
+          <Key>
+            <PropertyRef Name="Department_ID" />
+          </Key>
+          <Property Name="Department_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Department_Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Department_Head" Type="nvarchar" MaxLength="250" />
+          <Property Name="No_Of_Employees" Type="int" />
+          <Property Name="No_Of_Complaints" Type="int" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="Employee_ID" />
+          </Key>
+          <Property Name="Employee_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Employee_Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="Employee_Phoneno" Type="nvarchar" MaxLength="15" />
+          <Property Name="Employee_Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="Complainant_Password" Type="nvarchar" MaxLength="20" />
+          <Property Name="Complaint_ID" Type="int" />
+          <Property Name="Depart_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Complainn__Compl__59063A47">
+          <End Role="Complaints" Type="Self.Complaints" Multiplicity="0..1" />
+          <End Role="Complainnts" Type="Self.Complainnts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Complaints">
+              <PropertyRef Name="Complaint_ID" />
+            </Principal>
+            <Dependent Role="Complainnts">
+              <PropertyRef Name="Complaint_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Complaint__Compl__5629CD9C">
+          <End Role="Complaints" Type="Self.Complaints" Multiplicity="0..1" />
+          <End Role="Complaint_Log" Type="Self.Complaint_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Complaints">
+              <PropertyRef Name="Complaint_ID" />
+            </Principal>
+            <Dependent Role="Complaint_Log">
+              <PropertyRef Name="Complaint_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Complaint__Depar__4F7CD00D">
+          <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+          <End Role="Complaints" Type="Self.Complaints" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="Department_ID" />
+            </Principal>
+            <Dependent Role="Complaints">
+              <PropertyRef Name="Depart_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Complaint__Depar__5812160E">
+          <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+          <End Role="Complaint_Log" Type="Self.Complaint_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="Department_ID" />
+            </Principal>
+            <Dependent Role="Complaint_Log">
+              <PropertyRef Name="Depart_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Complaint__Emplo__571DF1D5">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Complaint_Log" Type="Self.Complaint_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="Complaint_Log">
+              <PropertyRef Name="Employee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__Compl__52593CB8">
+          <End Role="Complaints" Type="Self.Complaints" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Complaints">
+              <PropertyRef Name="Complaint_ID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Complaint_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__Depar__534D60F1">
+          <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="Department_ID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Depart_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SaafCity_DatabaseModelStoreContainer">
+          <EntitySet Name="Complainnts" EntityType="Self.Complainnts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Complaint_Log" EntityType="Self.Complaint_Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Complaints" EntityType="Self.Complaints" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Complainn__Compl__59063A47" Association="Self.FK__Complainn__Compl__59063A47">
+            <End Role="Complaints" EntitySet="Complaints" />
+            <End Role="Complainnts" EntitySet="Complainnts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Complaint__Compl__5629CD9C" Association="Self.FK__Complaint__Compl__5629CD9C">
+            <End Role="Complaints" EntitySet="Complaints" />
+            <End Role="Complaint_Log" EntitySet="Complaint_Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Complaint__Depar__4F7CD00D" Association="Self.FK__Complaint__Depar__4F7CD00D">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Complaints" EntitySet="Complaints" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Complaint__Depar__5812160E" Association="Self.FK__Complaint__Depar__5812160E">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Complaint_Log" EntitySet="Complaint_Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Complaint__Emplo__571DF1D5" Association="Self.FK__Complaint__Emplo__571DF1D5">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Complaint_Log" EntitySet="Complaint_Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__Compl__52593CB8" Association="Self.FK__Employees__Compl__52593CB8">
+            <End Role="Complaints" EntitySet="Complaints" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__Depar__534D60F1" Association="Self.FK__Employees__Depar__534D60F1">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SaafCity_DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Complainnt">
+          <Key>
+            <PropertyRef Name="Complainant_ID" />
+          </Key>
+          <Property Name="Complainant_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Complainant_Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Complainant_Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Complainant_PhoneNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Complainant_Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Complaint_ID" Type="Int32" />
+          <NavigationProperty Name="Complaint" Relationship="Self.FK__Complainn__Compl__59063A47" FromRole="Complainnts" ToRole="Complaints" />
+        </EntityType>
+        <EntityType Name="Complaint_Log">
+          <Key>
+            <PropertyRef Name="Serial_No" />
+          </Key>
+          <Property Name="Serial_No" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Complaint_ID" Type="Int32" />
+          <Property Name="Log_Time" Type="Time" Precision="7" />
+          <Property Name="Log_Date" Type="DateTime" Precision="0" />
+          <Property Name="Complaint_Loction" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Complaint_Status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Employee_ID" Type="Int32" />
+          <Property Name="Depart_ID" Type="Int32" />
+          <Property Name="Comments" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Complaint" Relationship="Self.FK__Complaint__Compl__5629CD9C" FromRole="Complaint_Log" ToRole="Complaints" />
+          <NavigationProperty Name="Department" Relationship="Self.FK__Complaint__Depar__5812160E" FromRole="Complaint_Log" ToRole="Departments" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Complaint__Emplo__571DF1D5" FromRole="Complaint_Log" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Complaint">
+          <Key>
+            <PropertyRef Name="Complaint_ID" />
+          </Key>
+          <Property Name="Complaint_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Complaint_Time" Type="DateTime" Precision="3" />
+          <Property Name="Complaint_Loction" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Complaint_Status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Complaint_Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Verifiction_Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Depart_ID" Type="Int32" />
+          <Property Name="Comments" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Complainnts" Relationship="Self.FK__Complainn__Compl__59063A47" FromRole="Complaints" ToRole="Complainnts" />
+          <NavigationProperty Name="Complaint_Log" Relationship="Self.FK__Complaint__Compl__5629CD9C" FromRole="Complaints" ToRole="Complaint_Log" />
+          <NavigationProperty Name="Department" Relationship="Self.FK__Complaint__Depar__4F7CD00D" FromRole="Complaints" ToRole="Departments" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Employees__Compl__52593CB8" FromRole="Complaints" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Department_ID" />
+          </Key>
+          <Property Name="Department_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Department_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Department_Head" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="No_Of_Employees" Type="Int32" />
+          <Property Name="No_Of_Complaints" Type="Int32" />
+          <NavigationProperty Name="Complaint_Log" Relationship="Self.FK__Complaint__Depar__5812160E" FromRole="Departments" ToRole="Complaint_Log" />
+          <NavigationProperty Name="Complaints" Relationship="Self.FK__Complaint__Depar__4F7CD00D" FromRole="Departments" ToRole="Complaints" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Employees__Depar__534D60F1" FromRole="Departments" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Employee_ID" />
+          </Key>
+          <Property Name="Employee_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Employee_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Employee_Phoneno" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Employee_Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Complainant_Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Complaint_ID" Type="Int32" />
+          <Property Name="Depart_ID" Type="Int32" />
+          <NavigationProperty Name="Complaint_Log" Relationship="Self.FK__Complaint__Emplo__571DF1D5" FromRole="Employees" ToRole="Complaint_Log" />
+          <NavigationProperty Name="Complaint" Relationship="Self.FK__Employees__Compl__52593CB8" FromRole="Employees" ToRole="Complaints" />
+          <NavigationProperty Name="Department" Relationship="Self.FK__Employees__Depar__534D60F1" FromRole="Employees" ToRole="Departments" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Complainn__Compl__59063A47">
+          <End Role="Complaints" Type="Self.Complaint" Multiplicity="0..1" />
+          <End Role="Complainnts" Type="Self.Complainnt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Complaints">
+              <PropertyRef Name="Complaint_ID" />
+            </Principal>
+            <Dependent Role="Complainnts">
+              <PropertyRef Name="Complaint_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Complaint__Compl__5629CD9C">
+          <End Role="Complaints" Type="Self.Complaint" Multiplicity="0..1" />
+          <End Role="Complaint_Log" Type="Self.Complaint_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Complaints">
+              <PropertyRef Name="Complaint_ID" />
+            </Principal>
+            <Dependent Role="Complaint_Log">
+              <PropertyRef Name="Complaint_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Complaint__Depar__5812160E">
+          <End Role="Departments" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Complaint_Log" Type="Self.Complaint_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="Department_ID" />
+            </Principal>
+            <Dependent Role="Complaint_Log">
+              <PropertyRef Name="Depart_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Complaint__Emplo__571DF1D5">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Complaint_Log" Type="Self.Complaint_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="Complaint_Log">
+              <PropertyRef Name="Employee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Complaint__Depar__4F7CD00D">
+          <End Role="Departments" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Complaints" Type="Self.Complaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="Department_ID" />
+            </Principal>
+            <Dependent Role="Complaints">
+              <PropertyRef Name="Depart_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__Compl__52593CB8">
+          <End Role="Complaints" Type="Self.Complaint" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Complaints">
+              <PropertyRef Name="Complaint_ID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Complaint_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__Depar__534D60F1">
+          <End Role="Departments" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="Department_ID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Depart_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SaafCity_DatabaseEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Complainnts" EntityType="Self.Complainnt" />
+          <EntitySet Name="Complaint_Log" EntityType="Self.Complaint_Log" />
+          <EntitySet Name="Complaints" EntityType="Self.Complaint" />
+          <EntitySet Name="Departments" EntityType="Self.Department" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__Complainn__Compl__59063A47" Association="Self.FK__Complainn__Compl__59063A47">
+            <End Role="Complaints" EntitySet="Complaints" />
+            <End Role="Complainnts" EntitySet="Complainnts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Complaint__Compl__5629CD9C" Association="Self.FK__Complaint__Compl__5629CD9C">
+            <End Role="Complaints" EntitySet="Complaints" />
+            <End Role="Complaint_Log" EntitySet="Complaint_Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Complaint__Depar__5812160E" Association="Self.FK__Complaint__Depar__5812160E">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Complaint_Log" EntitySet="Complaint_Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Complaint__Emplo__571DF1D5" Association="Self.FK__Complaint__Emplo__571DF1D5">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Complaint_Log" EntitySet="Complaint_Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Complaint__Depar__4F7CD00D" Association="Self.FK__Complaint__Depar__4F7CD00D">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Complaints" EntitySet="Complaints" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__Compl__52593CB8" Association="Self.FK__Employees__Compl__52593CB8">
+            <End Role="Complaints" EntitySet="Complaints" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__Depar__534D60F1" Association="Self.FK__Employees__Depar__534D60F1">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SaafCity_DatabaseModelStoreContainer" CdmEntityContainer="SaafCity_DatabaseEntities1">
+          <EntitySetMapping Name="Complainnts">
+            <EntityTypeMapping TypeName="SaafCity_DatabaseModel.Complainnt">
+              <MappingFragment StoreEntitySet="Complainnts">
+                <ScalarProperty Name="Complainant_ID" ColumnName="Complainant_ID" />
+                <ScalarProperty Name="Complainant_Name" ColumnName="Complainant_Name" />
+                <ScalarProperty Name="Complainant_Email" ColumnName="Complainant_Email" />
+                <ScalarProperty Name="Complainant_PhoneNo" ColumnName="Complainant_PhoneNo" />
+                <ScalarProperty Name="Complainant_Password" ColumnName="Complainant_Password" />
+                <ScalarProperty Name="Complaint_ID" ColumnName="Complaint_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Complaint_Log">
+            <EntityTypeMapping TypeName="SaafCity_DatabaseModel.Complaint_Log">
+              <MappingFragment StoreEntitySet="Complaint_Log">
+                <ScalarProperty Name="Serial_No" ColumnName="Serial_No" />
+                <ScalarProperty Name="Complaint_ID" ColumnName="Complaint_ID" />
+                <ScalarProperty Name="Log_Time" ColumnName="Log_Time" />
+                <ScalarProperty Name="Log_Date" ColumnName="Log_Date" />
+                <ScalarProperty Name="Complaint_Loction" ColumnName="Complaint_Loction" />
+                <ScalarProperty Name="Complaint_Status" ColumnName="Complaint_Status" />
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+                <ScalarProperty Name="Depart_ID" ColumnName="Depart_ID" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Complaints">
+            <EntityTypeMapping TypeName="SaafCity_DatabaseModel.Complaint">
+              <MappingFragment StoreEntitySet="Complaints">
+                <ScalarProperty Name="Complaint_ID" ColumnName="Complaint_ID" />
+                <ScalarProperty Name="Complaint_Time" ColumnName="Complaint_Time" />
+                <ScalarProperty Name="Complaint_Loction" ColumnName="Complaint_Loction" />
+                <ScalarProperty Name="Complaint_Status" ColumnName="Complaint_Status" />
+                <ScalarProperty Name="Complaint_Image" ColumnName="Complaint_Image" />
+                <ScalarProperty Name="Verifiction_Image" ColumnName="Verifiction_Image" />
+                <ScalarProperty Name="Depart_ID" ColumnName="Depart_ID" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="SaafCity_DatabaseModel.Department">
+              <MappingFragment StoreEntitySet="Departments">
+                <ScalarProperty Name="Department_ID" ColumnName="Department_ID" />
+                <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+                <ScalarProperty Name="Department_Head" ColumnName="Department_Head" />
+                <ScalarProperty Name="No_Of_Employees" ColumnName="No_Of_Employees" />
+                <ScalarProperty Name="No_Of_Complaints" ColumnName="No_Of_Complaints" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="SaafCity_DatabaseModel.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+                <ScalarProperty Name="Employee_Name" ColumnName="Employee_Name" />
+                <ScalarProperty Name="Employee_Phoneno" ColumnName="Employee_Phoneno" />
+                <ScalarProperty Name="Employee_Email" ColumnName="Employee_Email" />
+                <ScalarProperty Name="Complainant_Password" ColumnName="Complainant_Password" />
+                <ScalarProperty Name="Complaint_ID" ColumnName="Complaint_ID" />
+                <ScalarProperty Name="Depart_ID" ColumnName="Depart_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="SaafCity_DatabaseModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

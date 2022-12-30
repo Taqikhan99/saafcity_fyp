@@ -1,0 +1,349 @@
+﻿
+@{
+    ViewBag.Title = "Employees";
+}
+
+<h2>Employees</h2>
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90680653-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-90680653-2');
+    </script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Meta -->
+    <meta name="description" content="Responsive Bootstrap 4 Dashboard Template">
+    <meta name="author" content="BootstrapDash">
+
+    <title>Saaf City</title>
+
+    <!-- vendor css -->
+    <link href="~/lib/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="~/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="~/lib/typicons.font/typicons.css" rel="stylesheet">
+    <link href="~/lib/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+
+    <!-- azia CSS -->
+    <link rel="stylesheet" href="~/css/azia.css">
+    <!-- ================= Favicon ================== -->
+    <!-- Standard -->
+    <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
+    <!-- Retina iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
+    <!-- Retina iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
+    <!-- Standard iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
+    <!-- Standard iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
+
+    <!-- Styles -->
+    <link href="~/lib/rangSlider/ion.rangeSlider.css" rel="stylesheet">
+    <link href="~/lib/rangSlider/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+    <!--Themes Jquery Bar Rating-->
+    <link href="~/lib/font-awesome.min.css" rel="stylesheet">
+    <link href="~/lib/themify-icons.css" rel="stylesheet">
+
+    <link href="~/lib/menubar/sidebar.css" rel="stylesheet">
+    <link href="~/lib/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="~/lib/helper.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <img src="WhiteBlackBoldMinimalistBeautyBloggerLogo1.png">
+    <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+        <div class="nano">
+            <div class="nano-content">
+                <div style="size: 2in;" class="login-logo">
+                    <img src="~/images/logo.png">
+                </div>
+                <ul>
+                    <input style="width: 100%; border: solid black 1px; padding-top: 10px; padding-bottom:  10px; font-size: 15px; background-color: white; color: black;" class="search_bar_dashboard" type="text" name="search" placeholder="Search">
+                    <li>
+                        <a href="Dashboard" class="sidebar-sub-toggle"><i class="ti-home"></i> Dashboard <span class="badge badge-primary"></span></a>
+                    </li>
+                    <li><a href="Employees"><i class="bi-people-fill"></i> Employees </a></li>
+                    <li><a href="homepage_Garbage"><i class="ti-trash"></i> Garbage Department </a></li>
+
+                    <li><a href="homepage_Sewage"><i class="bi-water"></i> Sewage Department </a></li>
+
+
+                    <li><a href="Settings"><i class="ti-settings"></i> Settings <span class="badge badge-primary"></span></a>
+
+                    <li><a><i class="ti-close"></i> Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /# sidebar -->
+    <div id="complains">
+        <main>
+            <div class="faqs-grid">
+                <div class="faqs-item ">
+                    <a id="exp" class="faqs-title" href="#custom">Employee: 001</a>
+                    <div class="faqs-content">
+                        <div class="faqs-content-inside" style="text-align:center;">
+
+                            <div style="padding-top: 2px ;" class="u-form u-form-1">
+                                <h6>Name : Ali</h6>
+                                <h6>Status : Available</h6>
+                                <h6>Emp-Job : Driver</h6>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faqs-grid">
+                <div class="faqs-item ">
+                    <a id="exp" class="faqs-title" href="#custom">Employee: 002</a>
+                    <div class="faqs-content">
+                        <div class="faqs-content-inside" style="text-align:center;">
+
+                            <div style="padding-top: 2px ;" class="u-form u-form-1">
+                                <h6>Name : Ahmed</h6>
+                                <h6>Status : Available</h6>
+                                <h6>Emp-Job : Manager</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faqs-grid">
+                <div class="faqs-item ">
+                    <a id="exp" class="faqs-title" href="#custom">Employee: 003</a>
+                    <div class="faqs-content">
+                        <div class="faqs-content-inside" style="text-align:center;">
+                            <div style="padding-top: 2px ;" class="u-form u-form-1">
+                                <h6>Name : Abdullah</h6>
+                                <h6>Status : Available</h6>
+                                <h6>Emp-Job : Driver</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </main>
+    </div>
+
+
+
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/ionicons/ionicons.js"></script>
+    <script src="~/lib/jquery.flot/jquery.flot.js"></script>
+    <script src="~/lib/jquery.flot/jquery.flot.resize.js"></script>
+    <script src="~/lib/chart.js/Chart.bundle.min.js"></script>
+    <script src="~/lib/peity/jquery.peity.min.js"></script>
+
+    <script src="~/js/azia.js"></script>
+    <script src="~/js/chart.flot.sampledata.js"></script>
+    <script src="~/js/dashboard.sampledata.js"></script>
+    <script src="~/js/jquery.cookie.js" type="text/javascript"></script>
+    <script>
+            $(function () {
+                'use strict'
+
+                var plot = $.plot('#flotChart', [{
+                    data: flotSampleData3,
+                    color: '#007bff',
+                    lines: {
+                        fillColor: { colors: [{ opacity: 0 }, { opacity: 0.2 }] }
+                    }
+                }, {
+                    data: flotSampleData4,
+                    color: '#560bd0',
+                    lines: {
+                        fillColor: { colors: [{ opacity: 0 }, { opacity: 0.2 }] }
+                    }
+                }], {
+                    series: {
+                        shadowSize: 0,
+                        lines: {
+                            show: true,
+                            lineWidth: 2,
+                            fill: true
+                        }
+                    },
+                    grid: {
+                        borderWidth: 0,
+                        labelMargin: 8
+                    },
+                    yaxis: {
+                        show: true,
+                        min: 0,
+                        max: 100,
+                        ticks: [[0, ''], [20, '20K'], [40, '40K'], [60, '60K'], [80, '80K']],
+                        tickColor: '#eee'
+                    },
+                    xaxis: {
+                        show: true,
+                        color: '#fff',
+                        ticks: [[25, 'OCT 21'], [75, 'OCT 22'], [100, 'OCT 23'], [125, 'OCT 24']],
+                    }
+                });
+
+                $.plot('#flotChart1', [{
+                    data: dashData2,
+                    color: '#00cccc'
+                }], {
+                    series: {
+                        shadowSize: 0,
+                        lines: {
+                            show: true,
+                            lineWidth: 2,
+                            fill: true,
+                            fillColor: { colors: [{ opacity: 0.2 }, { opacity: 0.2 }] }
+                        }
+                    },
+                    grid: {
+                        borderWidth: 0,
+                        labelMargin: 0
+                    },
+                    yaxis: {
+                        show: false,
+                        min: 0,
+                        max: 35
+                    },
+                    xaxis: {
+                        show: false,
+                        max: 50
+                    }
+                });
+
+                $.plot('#flotChart2', [{
+                    data: dashData2,
+                    color: '#007bff'
+                }], {
+                    series: {
+                        shadowSize: 0,
+                        bars: {
+                            show: true,
+                            lineWidth: 0,
+                            fill: 1,
+                            barWidth: .5
+                        }
+                    },
+                    grid: {
+                        borderWidth: 0,
+                        labelMargin: 0
+                    },
+                    yaxis: {
+                        show: false,
+                        min: 0,
+                        max: 35
+                    },
+                    xaxis: {
+                        show: false,
+                        max: 20
+                    }
+                });
+
+
+                //-------------------------------------------------------------//
+
+
+                // Line chart
+                $('.peity-line').peity('line');
+
+                // Bar charts
+                $('.peity-bar').peity('bar');
+
+                // Bar charts
+                $('.peity-donut').peity('donut');
+
+                var ctx5 = document.getElementById('chartBar5').getContext('2d');
+                new Chart(ctx5, {
+                    type: 'bar',
+                    data: {
+                        labels: [0, 1, 2, 3, 4, 5, 6, 7],
+                        datasets: [{
+                            data: [2, 4, 10, 20, 45, 40, 35, 18],
+                            backgroundColor: '#560bd0'
+                        }, {
+                            data: [3, 6, 15, 35, 50, 45, 35, 25],
+                            backgroundColor: '#cad0e8'
+                        }]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        tooltips: {
+                            enabled: false
+                        },
+                        legend: {
+                            display: false,
+                            labels: {
+                                display: false
+                            }
+                        },
+                        scales: {
+                            yAxes: [{
+                                display: false,
+                                ticks: {
+                                    beginAtZero: true,
+                                    fontSize: 11,
+                                    max: 80
+                                }
+                            }],
+                            xAxes: [{
+                                barPercentage: 0.6,
+                                gridLines: {
+                                    color: 'rgba(0,0,0,0.08)'
+                                },
+                                ticks: {
+                                    beginAtZero: true,
+                                    fontSize: 11,
+                                    display: false
+                                }
+                            }]
+                        }
+                    }
+                });
+
+                // Donut Chart
+                var datapie = {
+                    labels: ['Search', 'Email', 'Referral', 'Social', 'Other'],
+                    datasets: [{
+                        data: [25, 20, 30, 15, 10],
+                        backgroundColor: ['#6f42c1', '#007bff', '#17a2b8', '#00cccc', '#adb2bd']
+                    }]
+                };
+
+                var optionpie = {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    legend: {
+                        display: false,
+                    },
+                    animation: {
+                        animateScale: true,
+                        animateRotate: true
+                    }
+                };
+
+                // For a doughnut chart
+                var ctxpie = document.getElementById('chartDonut');
+                var myPieChart6 = new Chart(ctxpie, {
+                    type: 'doughnut',
+                    data: datapie,
+                    options: optionpie
+                });
+
+            });
+    </script>
+</body>
+}
+
