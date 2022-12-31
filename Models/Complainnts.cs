@@ -12,7 +12,7 @@ namespace saafcity_fyp.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Complainnt
+    public partial class Complainnts
     {
         public int Complainant_ID { get; set; }
         public string Complainant_Name { get; set; }
@@ -21,6 +21,6 @@ namespace saafcity_fyp.Models
         public string Complainant_Password { get; set; }
         public Nullable<int> Complaint_ID { get; set; }
     
-        public virtual Complaint Complaint { get; set; }
+        public virtual Complaints Complaints { get; set; }
     }
 }

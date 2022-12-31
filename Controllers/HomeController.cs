@@ -1,8 +1,11 @@
-﻿using System;
+﻿using saafcity_fyp.Models;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace saafcity_fyp.Controllers
 {
@@ -10,22 +13,14 @@ namespace saafcity_fyp.Controllers
     {
         public ActionResult Dashboard()
         {
-            ViewBag.Title = "Dashboard";
+            ViewBag.smessage = TempData["message"];
 
             return View();
         }
-        public ActionResult log()
-        {
-            ViewBag.Title = "log";
 
-            return View();
-        }
-        public ActionResult register()
-        {
+       
+       
 
-
-            return View();
-        }
         public ActionResult Settings()
         {
             ViewBag.Title = "Settings";

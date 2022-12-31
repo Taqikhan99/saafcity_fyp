@@ -11,10 +11,15 @@ namespace saafcity_fyp.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class User
+    using System.ComponentModel.DataAnnotations;
+
+    public partial class Users
     {
+        public int Id { get; set; }
+
+        [Required(ErrorMessage ="User Id is required!")]
         public string User_ID { get; set; }
+        [Required(ErrorMessage = "Password is required!")]
         public string Password { get; set; }
     }
 }

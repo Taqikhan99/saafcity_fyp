@@ -60,13 +60,6 @@
     <link href="~/lib/helper.css" rel="stylesheet">
     <link href="~/css/style.css" rel="stylesheet">
 </head>
-<style>
-    body {
-        background-repeat: no-repeat;
-        background-position-x: center;
-        background-position-y: center;
-    }
-</style>
 
 <body style="background-image: url(/images/sustainability-3295757_1280.jpeg);">
     <div class="unix-login">
@@ -79,24 +72,18 @@
                                 <img src="~/images/logo.png">
                             </div>
                             <h4>Login</h4>
-                            <form>
+                            <form method="post">
                                 <div class="form-group">
-                                    <input type="Employee ID" class="form-control" placeholder="Your ID">
+                                    <input type="text" id="userid" name="User_ID" class="form-control" placeholder="Your ID">
+                                    @Html.ValidationMessage("User_ID", new {@class="text-danger"})
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Password">
+                                    <input type="password" name="Password" class="form-control" placeholder="Password">
+                                    @Html.ValidationMessage("Password", new { @class = "text-danger" })
                                 </div>
-                                <ul>
-                                    <li>
-
-
-                                    </li>
-                                    <li>
-
-                                        <a href="Home/Dashboard" <span class="btn btn-success btn-flat m-b-30 m-t-30">Login </span></a>
-                                    </li>
-                                   
-                                </ul>
+                                <div class="form-group">
+                                    <input class="btn btn-success" type="submit" value="Login"/>
+                                </div>
                                 <div class="register-link m-t-15 text-center">
                                     <p>Don't have account ? <a style="color:darkgreen" href="Home/register"> Sign Up Here</a></p>
                                 </div>

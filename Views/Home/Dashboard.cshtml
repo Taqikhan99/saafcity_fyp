@@ -21,6 +21,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="../Master Page layout/dist/css/adminlte.min.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <style>
         .year-stats {
             white-space: nowrap;
@@ -143,7 +144,7 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="index3.html" class="nav-link">Home</a>
                 </li>
-                
+
             </ul>
 
             <!-- Right navbar links -->
@@ -171,7 +172,6 @@
                 </li>
 
                 <!-- Messages Dropdown Menu -->
-                
                 <!-- Notifications Dropdown Menu -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
@@ -188,8 +188,8 @@
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                     </div>
                 </li>
-                
-                
+
+
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -197,13 +197,13 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="Home.aspx" class="brand-link">
-                <img src="../Master Page layout/dist/img/logo4.png" class="brand-image img-circle elevation-3"  style="opacity: .8;" />
+                <img src="../Master Page layout/dist/img/logo4.png" class="brand-image img-circle elevation-3" style="opacity: .8;" />
                 <span class="brand-text font-weight-light">SAAF CITY</span>
             </a>
 
             <!-- Sidebar -->
             <div class="sidebar">
-                
+
 
                 <!-- SidebarSearch Form -->
                 <div class="form-inline">
@@ -221,7 +221,7 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false" id="nav">
                         <!-- Add icons to the links using the .nav-icon class
-         with font-awesome or any other icon font library -->
+                        with font-awesome or any other icon font library -->
                         <li class="nav-item">
                             <a href="Dashboard" class="nav-link" id="home">
                                 <i class=" nav-icon fas fa-copy"></i>
@@ -519,3 +519,20 @@
     <!-- <script src="dist/js/pages/dashboard3.js"></script> -->
 </body>
 </html>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+
+    $(function () {
+        var message1 = '@ViewBag.smessage';
+
+        console.log(message1)
+        if (message1 != '') {
+            swal({
+                title: "Success",
+                text: message1,
+                icon:"success"
+                })
+        }
+
+    })
+</script>

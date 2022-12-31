@@ -24,8 +24,8 @@ namespace saafcity_fyp.Models
         public Nullable<int> Depart_ID { get; set; }
         public string Comments { get; set; }
     
-        public virtual Complaint Complaint { get; set; }
-        public virtual Department Department { get; set; }
-        public virtual Employee Employee { get; set; }
+        public virtual Complaints Complaints { get; set; }
+        public virtual Departments Departments { get; set; }
+        public virtual Employees Employees { get; set; }
     }
 }

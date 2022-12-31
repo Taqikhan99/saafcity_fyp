@@ -13,10 +13,10 @@ namespace saafcity_fyp.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SaafCity_DatabaseEntities1 : DbContext
+    public partial class SaafCity_DatabaseEntities2 : DbContext
     {
-        public SaafCity_DatabaseEntities1()
-            : base("name=SaafCity_DatabaseEntities1")
+        public SaafCity_DatabaseEntities2()
+            : base("name=SaafCity_DatabaseEntities2")
         {
         }
     
@@ -25,11 +25,11 @@ namespace saafcity_fyp.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Complainnt> Complainnts { get; set; }
+        public virtual DbSet<Complainnts> Complainnts { get; set; }
         public virtual DbSet<Complaint_Log> Complaint_Log { get; set; }
-        public virtual DbSet<Complaint> Complaints { get; set; }
-        public virtual DbSet<Department> Departments { get; set; }
-        public virtual DbSet<Employee> Employees { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Complaints> Complaints { get; set; }
+        public virtual DbSet<Departments> Departments { get; set; }
+        public virtual DbSet<Employees> Employees { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     }
 }

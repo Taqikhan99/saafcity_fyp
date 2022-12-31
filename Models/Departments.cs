@@ -12,25 +12,27 @@ namespace saafcity_fyp.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Employee
+    public partial class Departments
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Employee()
+        public Departments()
         {
             this.Complaint_Log = new HashSet<Complaint_Log>();
+            this.Complaints = new HashSet<Complaints>();
+            this.Employees = new HashSet<Employees>();
         }
     
-        public int Employee_ID { get; set; }
-        public string Employee_Name { get; set; }
-        public string Employee_Phoneno { get; set; }
-        public string Employee_Email { get; set; }
-        public string Complainant_Password { get; set; }
-        public Nullable<int> Complaint_ID { get; set; }
-        public Nullable<int> Depart_ID { get; set; }
+        public int Department_ID { get; set; }
+        public string Department_Name { get; set; }
+        public string Department_Head { get; set; }
+        public Nullable<int> No_Of_Employees { get; set; }
+        public Nullable<int> No_Of_Complaints { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Complaint_Log> Complaint_Log { get; set; }
-        public virtual Complaint Complaint { get; set; }
-        public virtual Department Department { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Complaints> Complaints { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Employees> Employees { get; set; }
     }
 }
