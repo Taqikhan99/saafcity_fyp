@@ -65,6 +65,19 @@ namespace saafcity_fyp.Controllers
             return View();
         }
 
+
+        public ActionResult Logout()
+        {
+            //logout using form authentication
+
+            FormsAuthentication.SignOut();
+
+            //lgout using destroying session
+            //Session.Abandon();
+
+            return RedirectToAction("Login");
+        }
+
         //[HttpPost]
         //public ActionResult register(Employee employee)
         //{
